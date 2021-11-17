@@ -1,0 +1,79 @@
+body {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100vh;
+}
+
+body {
+	background-color: #202628;
+}
+.triangles {
+	display: block;
+	margin: 0 auto;
+}
+.triangles > div {
+	position: relative;
+	text-align: left;
+	transform-origin: 33.33% 66.66%;
+}
+.triangles > div:before,
+.triangles > div:after {
+	content: "";
+	position: absolute;
+	background: inherit;
+}
+.triangles > div,
+.triangles > div:before,
+.triangles > div:after {
+	width: 80px;
+	height: 80px;
+	border-top-right-radius: 20%;
+}
+.triangles > div:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0, -50%);
+}
+.triangles > div:after {
+	transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+.triangles > div:first-child {
+	background: #21ecf3;
+	transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866) translate(143.33%, 110%);
+	animation: first 3s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+}
+.triangles > div:last-child {
+	background: #dc39dc;
+	transform: rotate(0deg) skewX(-30deg) scale(1, 0.866) translate(-100%, -4%);
+	animation: last 3s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+}
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+@keyframes first {
+	0% {
+		transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866) translate(143.33%, 110%);
+	}
+	33% {
+		transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866) translate(-76.67%, -120%);
+	}
+	66% {
+		transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866) translate(-76.67%, 112%);
+	}
+}
+@keyframes last {
+	0% {
+		transform: rotate(0deg) skewX(-30deg) scale(1, 0.866) translate(-100%, -4%);
+	}
+	33% {
+		transform: rotate(0deg) skewX(-30deg) scale(1, 0.866) translate(134%, -4%);
+	}
+	66% {
+		transform: rotate(0deg) skewX(-30deg) scale(1, 0.866) translate(-89%, -214%);
+	}
+}
